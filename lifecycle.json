@@ -1,0 +1,14 @@
+{
+  "Rules": [
+    {
+      "ID": "RetroShare-Expiration-Rule",
+      "Status": "Enabled",
+      "Filter": {
+        "Prefix": ""
+      },
+      "Expiration": {
+        "Days": 1
+      }
+    }
+  ]
+}

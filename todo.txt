@@ -1,0 +1,71 @@
+Fixing the Clipboard API Error on Mobile
+The error you're encountering on your phone is because the Clipboard API (navigator.clipboard) isn't available in all contexts, particularly on some mobile browsers or when the site isn't served over HTTPS.
+
+Let's fix your copyToClipboard function with a fallback method:
+// Replace your current copyToClipboard function with this more robust version
+const copyToClipboard = (text: string) => {
+  // First try the modern Clipboard API
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(err => {
+        console.error('Clipboard API error:', err);
+        fallbackCopyToClipboard(text);
+      });
+  } else {
+    // Fallback for browsers without Clipboard API support
+    fallbackCopyToClipboard(text);
+  }
+};
+
+// Add this helper function for the fallback approach
+const fallbackCopyToClipboard = (text: string) => {
+  try {
+    // Create temporary textarea element
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    
+    // Make the textarea out of viewport
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    
+    // Focus and select the text
+    textArea.focus();
+    textArea.select();
+    
+    // Execute the copy command
+    const successful = document.execCommand('copy');
+    
+    // Remove the temporary element
+    document.body.removeChild(textArea);
+    
+    if (successful) {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } else {
+      console.error('Fallback copy failed, execCommand returned false');
+    }
+  } catch (err) {
+    console.error('Fallback copy failed:', err);
+    // Show manual copy instruction if all else fails
+    alert(`Please copy this code manually: ${text}`);
+  }
+};
+
+What This Solution Does:
+Safely Checks for API Support: Tests if the Clipboard API exists before attempting to use it
+Provides a Fallback Method: Uses the older document.execCommand('copy') method if the Clipboard API isn't available
+Has a Final Fallback: If all else fails, shows an alert with the code so users can copy it manually
+Maintains UX: Still shows the "Copied!" feedback when successful
+This approach should work across most desktop and mobile browsers, including older versions and environments where Clipboard API access is restricted.
+
+Additional Tips for Mobile Testing:
+Ensure HTTPS: For production, always serve your app over HTTPS as many modern browser APIs require it
+Check Mobile Permissions: Some mobile browsers require explicit permissions for clipboard access
+Simplify for Mobile: Consider making the share code easier to remember or manually copy for mobile users
+With these changes, the copy functionality should work reliably across different devices and browsers.
