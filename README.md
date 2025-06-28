@@ -253,34 +253,6 @@ Resolve a share code and get download URL.
 
 ## 🚀 Deployment
 
-### Vercel Deployment (Recommended)
-
-RetroShare v1.0 is optimized for Vercel deployment. Follow these steps:
-
-1. **Deploy to Vercel**
-   ```bash
-   # Install Vercel CLI
-   npm i -g vercel
-   
-   # Login and deploy
-   vercel login
-   vercel
-   ```
-
-2. **Set Environment Variables**
-   In your Vercel dashboard, add these environment variables:
-   ```env
-   AWS_ACCESS_KEY_ID=your_aws_access_key
-   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-   AWS_REGION=us-east-1
-   S3_BUCKET_NAME=your_s3_bucket_name
-   DYNAMODB_TABLE_NAME=your_dynamodb_table_name
-   FILE_EXPIRATION_HOURS=24
-   ```
-
-3. **Detailed Guide**
-   See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete Vercel deployment instructions.
-
 ### Production Build
 ```bash
 npm run build
