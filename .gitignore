@@ -27,3 +27,27 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large files
+*.zip
+awscliv2.zip
+aws/dist/
+aws/install
+aws/README.md
+aws/THIRD_PARTY_LICENSES
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Custom
+certificates/
+*.pem
+
+# Temporary files
+*.tmp
+*.temp
