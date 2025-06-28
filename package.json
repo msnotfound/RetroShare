@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "lint": "next lint",
-    "dev": "node server.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "next start",
+    "vercel-build": "next build"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.835.0",
