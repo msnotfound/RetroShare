@@ -28,13 +28,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Large files
-*.zip
+# AWS CLI and related files
+aws/
 awscliv2.zip
-aws/dist/
-aws/install
-aws/README.md
-aws/THIRD_PARTY_LICENSES
+*.zip
 
 # IDE
 .vscode/
@@ -51,3 +48,7 @@ certificates/
 # Temporary files
 *.tmp
 *.temp
+
+# Lock files (optional - you might want to keep these)
+# package-lock.json
+# pnpm-lock.yaml
