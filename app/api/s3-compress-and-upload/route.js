@@ -5,7 +5,7 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 import { NextResponse } from 'next/server';
 import archiver from 'archiver';
-// export const runtime = 'edge';
+export const runtime = 'edge';
 // Configure DynamoDB Client
 const dynamoClient = new DynamoDBClient({
     region: process.env.AWS_REGION || "ap-south-1",

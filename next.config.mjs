@@ -14,11 +14,6 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
-  }, api: {
-    bodyParser: {
-      sizeLimit: '100mb',
-    },
-    responseLimit: '100mb',
   },
   async rewrites() {
     return [
