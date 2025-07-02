@@ -20,10 +20,10 @@
     "NODE_ENV": "production"
   },
   "functions": {
-    "app/api/s3-compress-and-upload/route.js": {
+    "pages/app/api/s3-compress-and-upload/route.js": {
       "maxDuration": 60
     },
-    "app/api/resolve-code/route.js": {
+    "pages/app/api/resolve-code/route.js": {
       "maxDuration": 30
     }
   }
