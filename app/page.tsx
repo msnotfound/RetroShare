@@ -181,7 +181,7 @@ export default function RetroFileShare() {
 
       setDownloadMessage(`Files downloaded successfully! Archive: ${result.archiveName}`);
       setInputCode(''); // Clear the input
-
+      
     } catch (err: any) {
       console.error('Download process failed:', err);
       setDownloadError(err.message || 'Download failed. Please check the share code and try again.');
@@ -316,33 +316,33 @@ export default function RetroFileShare() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <div 
-                        className={`border-2 border-dashed ${isDragging ? 'border-green-400 bg-green-400/10' : 'border-cyan-400/50'} rounded-lg p-6 text-center hover:border-cyan-400 transition-colors`}
-                        onDragEnter={handleDragEnter}
-                        onDragLeave={handleDragLeave}
-                        onDragOver={handleDragOver}
-                        onDrop={handleDrop}
-                      >
-                        <Upload className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
-                        <p className="text-cyan-300 font-head mb-2">
-                          {isDragging ? 'Drop files here' : 'Drop files here or'}
-                        </p>
-                        <input 
-                          type="file" 
-                          multiple 
-                          onChange={handleFileSelect} 
-                          className="hidden" 
-                          id="file-upload" 
-                          ref={fileInputRef}
-                        />
+                    <div 
+  className={`border-2 border-dashed ${isDragging ? 'border-green-400 bg-green-400/10' : 'border-cyan-400/50'} rounded-lg p-6 text-center hover:border-cyan-400 transition-colors`}
+  onDragEnter={handleDragEnter}
+  onDragLeave={handleDragLeave}
+  onDragOver={handleDragOver}
+  onDrop={handleDrop}
+>
+  <Upload className="w-8 h-8 text-cyan-400 mx-auto mb-2" />
+  <p className="text-cyan-300 font-head mb-2">
+    {isDragging ? 'Drop files here' : 'Drop files here or'}
+  </p>
+  <input 
+    type="file" 
+    multiple 
+    onChange={handleFileSelect} 
+    className="hidden" 
+    id="file-upload" 
+    ref={fileInputRef}
+  />
                         <label htmlFor="file-upload">
-                          <Button
-                            variant="outline"
-                            className="bg-cyan-400 text-gray-900 border-cyan-400 hover:bg-cyan-300 font-head"
-                            onClick={() => fileInputRef.current?.click()}
-                          >
-                            SELECT FILES
-                          </Button>
+                        <Button
+    variant="outline"
+    className="bg-cyan-400 text-gray-900 border-cyan-400 hover:bg-cyan-300 font-head"
+    onClick={() => fileInputRef.current?.click()}
+  >
+    SELECT FILES
+  </Button>
                         </label>
                       </div>
                       
@@ -469,9 +469,9 @@ export default function RetroFileShare() {
                       <CardTitle className="text-purple-300 font-head flex items-center gap-2">
                         <Wifi className="w-4 h-4" />
                         NETWORK SCAN
-                        <Badge variant="outline" className="ml-2 bg-cyan-600/20 text-cyan-300 border-cyan-500">
+                          <Badge variant="outline" className="ml-2 bg-cyan-600/20 text-cyan-300 border-cyan-500">
                           Demo Mode
-                        </Badge>
+                          </Badge>
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
@@ -494,69 +494,69 @@ export default function RetroFileShare() {
                       </Button>
 
                       <div className="space-y-2 max-h-64 overflow-y-auto">
-                        <div className="flex justify-between items-center">
-                          <p className="text-purple-300 font-head text-sm">Discovered Devices:</p>
-                          <Button 
-                            size="sm"
-                            onClick={scanNetwork}
-                            disabled={isScanning}
-                            className="bg-purple-600 hover:bg-purple-700 text-white font-head text-xs"
-                          >
-                            {isScanning ? (
-                              <>
-                                <RefreshCw className="w-3 h-3 mr-1 animate-spin" />
-                                SCANNING...
-                              </>
-                            ) : (
-                              <>
-                                <Wifi className="w-3 h-3 mr-1" />
-                                SCAN
-                              </>
-                            )}
-                          </Button>
-                        </div>
-                        
-                        {discoveredDevices.length === 0 ? (
-                          <div className="bg-gray-700/50 p-3 rounded border border-purple-400/30">
-                            <p className="text-gray-400 font-head text-sm">No devices found. Try scanning again.</p>
-                          </div>
-                        ) : (
-                          discoveredDevices.map((device, index) => (
-                            <div
-                              key={index}
-                              className={`bg-gray-700/50 p-3 rounded border ${
-                                selectedPeer?.id === device.id 
-                                  ? 'border-green-400' 
-                                  : 'border-purple-400/30 hover:border-purple-400'
-                              } transition-colors cursor-pointer`}
-                              onClick={() => connectToPeer(device)}
-                            >
-                              <div className="flex items-center justify-between">
-                                <div>
-                                  <p className="text-purple-200 font-head text-sm">{device.name}</p>
-                                  <p className="text-gray-400 font-head text-xs">
-                                    {device.type === 'mobile' ? '📱 Mobile' : '💻 Desktop'}
-                                    {device.isLocal && ' • Same Network'}
-                                  </p>
-                                </div>
-                                <Badge variant="outline" className={`${
-                                  selectedPeer?.id === device.id && isConnected
-                                    ? 'border-green-400 text-green-400'
-                                    : selectedPeer?.id === device.id && isConnecting
-                                      ? 'border-yellow-400 text-yellow-400'
-                                      : 'border-blue-400 text-blue-400'
-                                } font-head text-xs`}>
-                                  {selectedPeer?.id === device.id && isConnected
-                                    ? 'connected'
-                                    : selectedPeer?.id === device.id && isConnecting
-                                      ? 'connecting...'
-                                      : 'online'}
-                                </Badge>
-                              </div>
-                            </div>
-                          ))
-                        )}
-                      </div>
+  <div className="flex justify-between items-center">
+    <p className="text-purple-300 font-head text-sm">Discovered Devices:</p>
+    <Button 
+      size="sm"
+      onClick={scanNetwork}
+      disabled={isScanning}
+      className="bg-purple-600 hover:bg-purple-700 text-white font-head text-xs"
+    >
+      {isScanning ? (
+        <>
+          <RefreshCw className="w-3 h-3 mr-1 animate-spin" />
+          SCANNING...
+        </>
+      ) : (
+        <>
+          <Wifi className="w-3 h-3 mr-1" />
+          SCAN
+        </>
+      )}
+    </Button>
+  </div>
+  
+  {discoveredDevices.length === 0 ? (
+    <div className="bg-gray-700/50 p-3 rounded border border-purple-400/30">
+      <p className="text-gray-400 font-head text-sm">No devices found. Try scanning again.</p>
+    </div>
+  ) : (
+    discoveredDevices.map((device, index) => (
+      <div
+        key={index}
+        className={`bg-gray-700/50 p-3 rounded border ${
+          selectedPeer?.id === device.id 
+            ? 'border-green-400' 
+            : 'border-purple-400/30 hover:border-purple-400'
+        } transition-colors cursor-pointer`}
+        onClick={() => connectToPeer(device)}
+      >
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-purple-200 font-head text-sm">{device.name}</p>
+            <p className="text-gray-400 font-head text-xs">
+              {device.type === 'mobile' ? '📱 Mobile' : '💻 Desktop'}
+              {device.isLocal && ' • Same Network'}
+            </p>
+          </div>
+          <Badge variant="outline" className={`${
+            selectedPeer?.id === device.id && isConnected
+              ? 'border-green-400 text-green-400'
+              : selectedPeer?.id === device.id && isConnecting
+                ? 'border-yellow-400 text-yellow-400'
+                : 'border-blue-400 text-blue-400'
+          } font-head text-xs`}>
+            {selectedPeer?.id === device.id && isConnected
+              ? 'connected'
+              : selectedPeer?.id === device.id && isConnecting
+                ? 'connecting...'
+                : 'online'}
+          </Badge>
+        </div>
+      </div>
+    ))
+  )}
+</div>
                     </CardContent>
                   </Card>
 
@@ -569,166 +569,166 @@ export default function RetroFileShare() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                      <div>
-                        <Label htmlFor="manual-ip" className="text-cyan-300 font-head">
-                          IP Address / Hostname
-                        </Label>
-                        <div className="flex mt-2">
-                          <Input
-                            id="manual-ip"
-                            value={manualIP}
-                            onChange={(e) => setManualIP(e.target.value)}
-                            placeholder="192.168.1.100"
-                            className="bg-gray-700 border-cyan-400/50 text-cyan-200 font-head flex-1 mr-2"
-                          />
-                          <Button
-                            onClick={handleManualConnect}
-                            disabled={!manualIP}
-                            className="bg-cyan-600 hover:bg-cyan-700 text-white font-head"
-                          >
-                            CONNECT
-                          </Button>
-                        </div>
-                      </div>
+                    <div>
+  <Label htmlFor="manual-ip" className="text-cyan-300 font-head">
+    IP Address / Hostname
+  </Label>
+  <div className="flex mt-2">
+    <Input
+      id="manual-ip"
+      value={manualIP}
+      onChange={(e) => setManualIP(e.target.value)}
+      placeholder="192.168.1.100"
+      className="bg-gray-700 border-cyan-400/50 text-cyan-200 font-head flex-1 mr-2"
+    />
+    <Button
+      onClick={handleManualConnect}
+      disabled={!manualIP}
+      className="bg-cyan-600 hover:bg-cyan-700 text-white font-head"
+    >
+      CONNECT
+    </Button>
+  </div>
+</div>
                       
-                      <div>
-                        <input 
-                          type="file" 
-                          multiple 
-                          onChange={handleNetworkFileSelect} 
-                          className="hidden" 
-                          id="network-file-upload" 
-                          ref={networkFileInputRef}
-                        />
-                        
-                        <div 
-                          className={`border-2 border-dashed border-cyan-400/50 rounded-lg p-4 text-center ${
-                            isConnected ? 'hover:border-cyan-400 cursor-pointer' : 'opacity-50'
-                          }`}
-                          onClick={() => isConnected && networkFileInputRef.current?.click()}
-                        >
-                          {selectedPeer && (
-                            <div className="mt-2 bg-gray-700/50 p-2 rounded border border-cyan-400/30">
-                              <p className="text-cyan-300 font-head text-sm">
-                                Status: {isConnected 
-                                  ? 'Connected to' 
-                                  : isConnecting 
-                                    ? 'Connecting to' 
-                                    : transferError 
-                                      ? 'Connection failed with' 
-                                      : 'Selected'} {selectedPeer.name}
-                              </p>
-                              {selectedPeer.localIpHint && (
-                                <p className="text-gray-400 font-head text-xs">IP: {selectedPeer.localIpHint}</p>
-                              )}
-                              {isConnecting && (
-                                <div className="flex items-center mt-1">
-                                  <RefreshCw className="w-3 h-3 text-yellow-400 mr-2 animate-spin" />
-                                  <p className="text-yellow-400 font-head text-xs">Establishing connection...</p>
-                                </div>
-                              )}
-                              {transferError && (
-                                <div className="flex items-center mt-1">
-                                  <p className="text-red-400 font-head text-xs">{transferError}</p>
-                                </div>
-                              )}
-                            </div>
-                          )}
-                          <Upload className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
-                          <p className="text-cyan-300 font-head text-sm">
-                            {isConnected 
-                              ? networkSelectedFiles.length > 0 
-                                ? `${networkSelectedFiles.length} file(s) selected` 
-                                : "Select files to send" 
-                              : selectedPeer
-                                ? "Connecting to peer..."
-                                : "Select a device first"}
-                          </p>
-                        </div>
-                        
-                        {networkSelectedFiles.length > 0 && (
-                          <div className="mt-2 space-y-2">
-                            {networkSelectedFiles.map((file, index) => (
-                              <div key={index} className="bg-gray-700/50 p-2 rounded border border-cyan-400/30">
-                                <p className="text-cyan-200 font-head text-sm">{file.name}</p>
-                                <p className="text-gray-400 font-head text-xs">{(file.size / (1024 * 1024)).toFixed(2)} MB</p>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                        
-                        {transferProgress > 0 && (
-                          <div className="mt-2 bg-gray-700/50 p-2 rounded border border-cyan-400/30">
-                            <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
-                              <div 
-                                className="bg-gradient-to-r from-cyan-400 to-blue-500 h-full" 
-                                style={{ width: `${transferProgress}%` }}
-                              />
-                            </div>
-                            <p className="text-cyan-300 font-head text-xs mt-1 text-center">
-                              {transferProgress === 100 ? 'Transfer Complete!' : `${transferProgress}% Complete`}
-                            </p>
-                          </div>
-                        )}
-                        
-                        {transferError && (
-                          <div className="mt-2 bg-red-900/30 p-2 rounded border border-red-400/30">
-                            <p className="text-red-300 font-head text-xs">Error: {transferError}</p>
-                          </div>
-                        )}
-                        
-                        <Button
-                          onClick={handleP2PTransfer}
-                          disabled={!isConnected || networkSelectedFiles.length === 0 || transferProgress > 0 && transferProgress < 100}
-                          className="w-full mt-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 font-head"
-                        >
-                          {transferProgress > 0 && transferProgress < 100 ? (
-                            <>
-                              <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                              SENDING...
-                            </>
-                          ) : (
-                            'SEND FILES'
-                          )}
-                        </Button>
-                      </div>
+<div>
+  <input 
+    type="file" 
+    multiple 
+    onChange={handleNetworkFileSelect} 
+    className="hidden" 
+    id="network-file-upload" 
+    ref={networkFileInputRef}
+  />
+  
+  <div 
+    className={`border-2 border-dashed border-cyan-400/50 rounded-lg p-4 text-center ${
+      isConnected ? 'hover:border-cyan-400 cursor-pointer' : 'opacity-50'
+    }`}
+    onClick={() => isConnected && networkFileInputRef.current?.click()}
+  >
+    {selectedPeer && (
+  <div className="mt-2 bg-gray-700/50 p-2 rounded border border-cyan-400/30">
+    <p className="text-cyan-300 font-head text-sm">
+      Status: {isConnected 
+        ? 'Connected to' 
+        : isConnecting 
+          ? 'Connecting to' 
+          : transferError 
+            ? 'Connection failed with' 
+            : 'Selected'} {selectedPeer.name}
+    </p>
+    {selectedPeer.localIpHint && (
+      <p className="text-gray-400 font-head text-xs">IP: {selectedPeer.localIpHint}</p>
+    )}
+    {isConnecting && (
+      <div className="flex items-center mt-1">
+        <RefreshCw className="w-3 h-3 text-yellow-400 mr-2 animate-spin" />
+        <p className="text-yellow-400 font-head text-xs">Establishing connection...</p>
+      </div>
+    )}
+    {transferError && (
+      <div className="flex items-center mt-1">
+        <p className="text-red-400 font-head text-xs">{transferError}</p>
+      </div>
+    )}
+  </div>
+)}
+    <Upload className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+    <p className="text-cyan-300 font-head text-sm">
+      {isConnected 
+        ? networkSelectedFiles.length > 0 
+          ? `${networkSelectedFiles.length} file(s) selected` 
+          : "Select files to send" 
+        : selectedPeer
+          ? "Connecting to peer..."
+          : "Select a device first"}
+    </p>
+  </div>
+  
+  {networkSelectedFiles.length > 0 && (
+    <div className="mt-2 space-y-2">
+      {networkSelectedFiles.map((file, index) => (
+        <div key={index} className="bg-gray-700/50 p-2 rounded border border-cyan-400/30">
+          <p className="text-cyan-200 font-head text-sm">{file.name}</p>
+          <p className="text-gray-400 font-head text-xs">{(file.size / (1024 * 1024)).toFixed(2)} MB</p>
+        </div>
+      ))}
+    </div>
+  )}
+  
+  {transferProgress > 0 && (
+    <div className="mt-2 bg-gray-700/50 p-2 rounded border border-cyan-400/30">
+      <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+        <div 
+          className="bg-gradient-to-r from-cyan-400 to-blue-500 h-full" 
+          style={{ width: `${transferProgress}%` }}
+        />
+      </div>
+      <p className="text-cyan-300 font-head text-xs mt-1 text-center">
+        {transferProgress === 100 ? 'Transfer Complete!' : `${transferProgress}% Complete`}
+      </p>
+    </div>
+  )}
+  
+  {transferError && (
+    <div className="mt-2 bg-red-900/30 p-2 rounded border border-red-400/30">
+      <p className="text-red-300 font-head text-xs">Error: {transferError}</p>
+    </div>
+  )}
+  
+  <Button
+    onClick={handleP2PTransfer}
+    disabled={!isConnected || networkSelectedFiles.length === 0 || transferProgress > 0 && transferProgress < 100}
+    className="w-full mt-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 font-head"
+  >
+    {transferProgress > 0 && transferProgress < 100 ? (
+      <>
+        <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+        SENDING...
+      </>
+    ) : (
+      'SEND FILES'
+    )}
+  </Button>
+</div>
 
-                      {isConnected && (
-                        <div className="mt-4 space-y-2">
-                          <div className="flex items-center">
-                            <Input 
-                              value={chatMessage}
-                              onChange={(e) => setChatMessage(e.target.value)}
-                              placeholder="Type a test message..."
-                              className="bg-gray-700 border-cyan-400/50 text-cyan-200 font-head flex-1 mr-2"
-                              onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-                            />
-                            <Button
-                              onClick={handleSendMessage}
-                              disabled={!chatMessage.trim()}
-                              className="bg-cyan-600 hover:bg-cyan-700 text-white font-head"
-                            >
-                              <Send className="w-4 h-4" />
-                            </Button>
-                          </div>
-                          
-                          {chatMessages.length > 0 && (
-                            <div className="bg-gray-700/50 p-3 rounded border border-cyan-400/30 max-h-32 overflow-y-auto">
-                              {chatMessages.map((msg, idx) => (
-                                <div key={idx} className={`mb-1 ${msg.sent ? 'text-right' : 'text-left'}`}>
-                                  <span className={`inline-block py-1 px-2 rounded ${
-                                    msg.sent 
-                                      ? 'bg-cyan-700/70 text-cyan-100' 
-                                      : 'bg-purple-700/70 text-purple-100'
-                                  } font-head text-xs`}>
-                                    {msg.message}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
+  {isConnected && (
+      <div className="mt-4 space-y-2">
+        <div className="flex items-center">
+          <Input 
+            value={chatMessage}
+            onChange={(e) => setChatMessage(e.target.value)}
+            placeholder="Type a test message..."
+            className="bg-gray-700 border-cyan-400/50 text-cyan-200 font-head flex-1 mr-2"
+            onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+          />
+          <Button
+            onClick={handleSendMessage}
+            disabled={!chatMessage.trim()}
+            className="bg-cyan-600 hover:bg-cyan-700 text-white font-head"
+          >
+            <Send className="w-4 h-4" />
+          </Button>
+        </div>
+        
+        {chatMessages.length > 0 && (
+          <div className="bg-gray-700/50 p-3 rounded border border-cyan-400/30 max-h-32 overflow-y-auto">
+            {chatMessages.map((msg, idx) => (
+              <div key={idx} className={`mb-1 ${msg.sent ? 'text-right' : 'text-left'}`}>
+                <span className={`inline-block py-1 px-2 rounded ${
+                  msg.sent 
+                    ? 'bg-cyan-700/70 text-cyan-100' 
+                    : 'bg-purple-700/70 text-purple-100'
+                } font-head text-xs`}>
+                  {msg.message}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    )}
                     </CardContent>
                   </Card>
                 </div>
