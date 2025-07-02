@@ -18,5 +18,13 @@
   ],
   "env": {
     "NODE_ENV": "production"
+  },
+  "functions": {
+    "app/api/s3-compress-and-upload/route.js": {
+      "maxDuration": 60
+    },
+    "app/api/resolve-code/route.js": {
+      "maxDuration": 30
+    }
   }
 } 
