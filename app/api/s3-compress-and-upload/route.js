@@ -19,7 +19,7 @@ const docClient = DynamoDBDocumentClient.from(dynamoClient);
 const tableName = process.env.RETROSHARE_DYNAMODB_TABLE_NAME || "FileShareCodes";
 
 // Configuration constants
-const MAX_SINGLE_FILE_SIZE = process.env.MAX_SINGLE_FILE_SIZE; // 50MB threshold for direct upload
+const MAX_SINGLE_FILE_SIZE = process.env.MAX_SINGLE_FILE_SIZE; // 25MB threshold for direct upload
 
 // Function to generate a unique 6-digit code
 const generateUniqueCode = () => {
