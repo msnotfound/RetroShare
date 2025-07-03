@@ -70,11 +70,11 @@ A retro-themed file sharing service that allows users to upload files to AWS S3 
 3. **Set up AWS credentials**
    ```bash
    # Create .env.local file
-   AWS_ACCESS_KEY_ID=your_access_key
-   AWS_SECRET_ACCESS_KEY=your_secret_key
-   AWS_REGION=your_region
-   S3_BUCKET_NAME=your_bucket_name
-   DYNAMODB_TABLE_NAME=your_table_name
+   RETROSHARE_AWS_ACCESS_KEY_ID=your_access_key
+   RETROSHARE_AWS_SECRET_ACCESS_KEY=your_secret_key
+   RETROSHARE_AWS_REGION=your_region
+   RETROSHARE_S3_BUCKET_NAME=your_bucket_name
+   RETROSHARE_DYNAMODB_TABLE_NAME=your_table_name
    ```
 
 4. **Generate SSL certificates**
@@ -124,11 +124,11 @@ Create a `.env.local` file in the root directory:
 
 ```env
 # AWS Configuration
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_REGION=us-east-1
-S3_BUCKET_NAME=retroshare-files
-DYNAMODB_TABLE_NAME=retroshare-shares
+RETROSHARE_AWS_ACCESS_KEY_ID=your_access_key
+RETROSHARE_AWS_SECRET_ACCESS_KEY=your_secret_key
+RETROSHARE_AWS_REGION=us-east-1
+RETROSHARE_S3_BUCKET_NAME=retroshare-files
+RETROSHARE_DYNAMODB_TABLE_NAME=retroshare-shares
 
 # Optional: File expiration (in hours)
 FILE_EXPIRATION_HOURS=24

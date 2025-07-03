@@ -8,36 +8,36 @@ import { NextResponse } from 'next/server';
 
 // Configure DynamoDB Client
 const dynamoClient = new DynamoDBClient({
-    region: process.env.AWS_REGION,
+    region: process.env.RETROSHARE_AWS_REGION,
     credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        accessKeyId: process.env.RETROSHARE_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.RETROSHARE_AWS_SECRET_ACCESS_KEY,
     },
 });
 
 const docClient = DynamoDBDocumentClient.from(dynamoClient);
-const tableName = process.env.DYNAMODB_TABLE_NAME;
+const tableName = process.env.RETROSHARE_DYNAMODB_TABLE_NAME;
 
 // Configure S3 client
 const s3Client = new S3Client({
-    region: process.env.AWS_REGION,
+    region: process.env.RETROSHARE_AWS_REGION,
     credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        accessKeyId: process.env.RETROSHARE_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.RETROSHARE_AWS_SECRET_ACCESS_KEY,
     },
     
 });
 
-const bucketName = process.env.S3_BUCKET_NAME;
+const bucketName = process.env.RETROSHARE_S3_BUCKET_NAME;
 
 export async function POST(request) {
     if (!bucketName) {
-        console.error("S3_BUCKET_NAME environment variable is not set.");
+        console.error("RETROSHARE_S3_BUCKET_NAME environment variable is not set.");
         return NextResponse.json({ message: 'Server configuration error: S3 bucket name not set.' }, { status: 500 });
     }
 
     if (!tableName) {
-        console.error("DYNAMODB_TABLE_NAME environment variable is not set.");
+        console.error("RETROSHARE_DYNAMODB_TABLE_NAME environment variable is not set.");
         return NextResponse.json({ message: 'Server configuration error: DynamoDB table name not set.' }, { status: 500 });
     }
 

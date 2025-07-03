@@ -35,11 +35,11 @@ Ensure your repository contains:
    Add these environment variables in the Vercel dashboard:
 
    ```env
-   AWS_ACCESS_KEY_ID=your_aws_access_key
-   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-   AWS_REGION=us-east-1
-   S3_BUCKET_NAME=your_s3_bucket_name
-   DYNAMODB_TABLE_NAME=your_dynamodb_table_name
+   RETROSHARE_AWS_ACCESS_KEY_ID=your_aws_access_key
+   RETROSHARE_AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+   RETROSHARE_AWS_REGION=us-east-1
+   RETROSHARE_S3_BUCKET_NAME=your_s3_bucket_name
+   RETROSHARE_DYNAMODB_TABLE_NAME=your_dynamodb_table_name
    FILE_EXPIRATION_HOURS=24
    ```
 
@@ -66,11 +66,11 @@ Ensure your repository contains:
 
 4. **Set Environment Variables**
    ```bash
-   vercel env add AWS_ACCESS_KEY_ID
-   vercel env add AWS_SECRET_ACCESS_KEY
-   vercel env add AWS_REGION
-   vercel env add S3_BUCKET_NAME
-   vercel env add DYNAMODB_TABLE_NAME
+   vercel env add RETROSHARE_AWS_ACCESS_KEY_ID
+   vercel env add RETROSHARE_AWS_SECRET_ACCESS_KEY
+   vercel env add RETROSHARE_AWS_REGION
+   vercel env add RETROSHARE_S3_BUCKET_NAME
+   vercel env add RETROSHARE_DYNAMODB_TABLE_NAME
    ```
 
 ## Step 3: AWS Setup

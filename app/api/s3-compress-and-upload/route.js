@@ -8,15 +8,15 @@ import archiver from 'archiver';
 // export const runtime = 'edge';
 // Configure DynamoDB Client
 const dynamoClient = new DynamoDBClient({
-    region: process.env.AWS_REGION || "ap-south-1",
+    region: process.env.RETROSHARE_AWS_REGION || "ap-south-1",
     credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        accessKeyId: process.env.RETROSHARE_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.RETROSHARE_AWS_SECRET_ACCESS_KEY,
     },
 });
 
 const docClient = DynamoDBDocumentClient.from(dynamoClient);
-const tableName = process.env.DYNAMODB_TABLE_NAME || "FileShareCodes";
+const tableName = process.env.RETROSHARE_DYNAMODB_TABLE_NAME || "FileShareCodes";
 
 // Configuration constants
 const MAX_SINGLE_FILE_SIZE = process.env.MAX_SINGLE_FILE_SIZE; // 50MB threshold for direct upload
@@ -33,24 +33,24 @@ const generateUniqueCode = () => {
 
 // Configure S3 client
 const s3Client = new S3Client({
-    region: process.env.AWS_REGION,
+    region: process.env.RETROSHARE_AWS_REGION,
     credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        accessKeyId: process.env.RETROSHARE_AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.RETROSHARE_AWS_SECRET_ACCESS_KEY,
     },
     
 });
 
-const bucketName = process.env.S3_BUCKET_NAME;
+const bucketName = process.env.RETROSHARE_S3_BUCKET_NAME;
 
 export async function POST(request) {
     if (!bucketName) {
-        console.error("S3_BUCKET_NAME environment variable is not set.");
+        console.error("RETROSHARE_S3_BUCKET_NAME environment variable is not set.");
         return NextResponse.json({ message: 'Server configuration error: S3 bucket name not set.' }, { status: 500 });
     }
 
     if (!tableName) {
-        console.error("DYNAMODB_TABLE_NAME environment variable is not set.");
+        console.error("RETROSHARE_DYNAMODB_TABLE_NAME environment variable is not set.");
         return NextResponse.json({ message: 'Server configuration error: DynamoDB table name not set.' }, { status: 500 });
     }
 
