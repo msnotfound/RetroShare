@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-retroshare-dev-2f83c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::476356830965:role/amplify-retroshare-dev-2f83c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::476356830965:role/amplify-retroshare-dev-2f83c-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-retroshare-dev-2f83c-deployment",
+      "UnauthRoleName": "amplify-retroshare-dev-2f83c-unauthRole",
+      "StackName": "amplify-retroshare-dev-2f83c",
+      "StackId": "arn:aws:cloudformation:ap-south-1:476356830965:stack/amplify-retroshare-dev-2f83c/e5cca990-58dc-11f0-8835-0a4608b3a9c5",
+      "AmplifyAppId": "d1omhppzvoj6zy"
+    }
+  }
+}
