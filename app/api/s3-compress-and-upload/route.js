@@ -1,5 +1,5 @@
 // app/api/s3-compress-and-upload/route.js
-
+console.log("ALL ENV VARS:", JSON.stringify(process.env, null, 2));
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
