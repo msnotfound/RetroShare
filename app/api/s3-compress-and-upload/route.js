@@ -1,5 +1,5 @@
 // app/api/s3-compress-and-upload/route.js
-console.log("ALL ENV VARS:", JSON.stringify(process.env, null, 2));
+
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
@@ -44,6 +44,7 @@ const s3Client = new S3Client({
 const bucketName = process.env.RETROSHARE_S3_BUCKET_NAME;
 
 export async function POST(request) {
+    console.log("ALL ENV VARS:", JSON.stringify(process.env, null, 2));
     if (!bucketName) {
         console.error("RETROSHARE_S3_BUCKET_NAME environment variable is not set.");
         return NextResponse.json({ message: 'Server configuration error: S3 bucket name not set.' }, { status: 500 });
