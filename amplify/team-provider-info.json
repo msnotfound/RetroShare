@@ -11,5 +11,27 @@
       "StackId": "arn:aws:cloudformation:ap-south-1:476356830965:stack/amplify-retroshare-dev-2f83c/e5cca990-58dc-11f0-8835-0a4608b3a9c5",
       "AmplifyAppId": "d1omhppzvoj6zy"
     }
+  },
+  "secondary": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-retroshare-secondary-d1015-authRole",
+      "UnauthRoleArn": "arn:aws:iam::476356830965:role/amplify-retroshare-secondary-d1015-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::476356830965:role/amplify-retroshare-secondary-d1015-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-retroshare-secondary-d1015-deployment",
+      "UnauthRoleName": "amplify-retroshare-secondary-d1015-unauthRole",
+      "StackName": "amplify-retroshare-secondary-d1015",
+      "StackId": "arn:aws:cloudformation:ap-south-1:476356830965:stack/amplify-retroshare-secondary-d1015/9ffca5c0-5961-11f0-b242-0a88a87ee907",
+      "AmplifyAppId": "d1omhppzvoj6zy"
+    },
+    "categories": {
+      "auth": {
+        "retroshare3f821885": {}
+      },
+      "storage": {
+        "s3storage": {},
+        "RetroFileShareCodes": {}
+      }
+    }
   }
 }

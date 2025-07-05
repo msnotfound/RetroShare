@@ -1,0 +1,10 @@
+{
+  "resourceName": "RetroFileShareCodes",
+  "tableName": "RetroFileShareCodes",
+  "partitionKey": {
+    "fieldName": "shareCode",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
